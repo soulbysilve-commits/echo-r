@@ -371,7 +371,7 @@ export default function Home() {
           </p>
 
           <a
-            href="https://forms.gle/Npiv47SY2WgBik9A6"
+            href="https://forms.gle/yo2GDv3oGUpUH4Uy8"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex rounded-full bg-white px-8 py-4 font-bold text-black hover:bg-blue-200"
