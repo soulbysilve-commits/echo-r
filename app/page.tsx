@@ -38,6 +38,67 @@ export default function Home() {
         <p className="mt-6 max-w-3xl text-xl text-gray-400">
           AI Personality Research • Memory Continuity • Governance Systems
         </p>
+
+        <div className="mt-10 flex gap-4">
+          <a
+            href="/echo-r"
+            className="rounded-xl bg-blue-600 px-6 py-3 font-bold hover:bg-blue-500"
+          >
+            Explore ECHO-R
+          </a>
+
+          <a
+            href="https://forms.gle/yo2GDv3oGUpUH4Uy8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-white/20 px-6 py-3 font-bold hover:bg-white/10"
+          >
+            Apply Founder
+          </a>
+        </div>
+      </section>
+
+      {/* What We Build */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+
+        <h2 className="mb-10 text-4xl font-bold">
+          What We Build
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-3">
+
+          <div className="rounded-2xl border border-white/10 p-6">
+            <h3 className="text-2xl font-bold">
+              ECHO-R
+            </h3>
+
+            <p className="mt-3 text-gray-400">
+              Persistent AI Personality Architecture
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 p-6">
+            <h3 className="text-2xl font-bold">
+              Lyla
+            </h3>
+
+            <p className="mt-3 text-gray-400">
+              Mental Health Support AI
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 p-6">
+            <h3 className="text-2xl font-bold">
+              Research
+            </h3>
+
+            <p className="mt-3 text-gray-400">
+              Memory Continuity & Governance
+            </p>
+          </div>
+
+        </div>
+
       </section>
 
       {/* News */}

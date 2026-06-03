@@ -26,8 +26,8 @@ export default function Home() {
                     <div className="hidden gap-8 text-sm text-gray-400 md:flex">
                         <a href="#research" className="hover:text-white">Research</a>
                         <a href="#architecture" className="hover:text-white">Architecture</a>
-                        <a href="#founder" className="hover:text-white">Founder</a>
-                        <a href="#faq" className="hover:text-white">FAQ</a>
+                        <a href="/echo-r" className="hover:text-white">Founder</a>
+                        <a href="/echo-r" className="hover:text-white">FAQ</a>
                     </div>
 
                     <a
@@ -120,7 +120,7 @@ export default function Home() {
 
                     <div className="flex flex-wrap gap-4">
                         <a
-                            href="#founder"
+                            href="/echo-r"
                             className="rounded-full bg-blue-500 px-8 py-4 text-sm font-bold text-black hover:bg-blue-300 md:text-base"
                         >
                             Apply for Founder Access
