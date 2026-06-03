@@ -113,18 +113,26 @@ export default function Home() {
             <p className="text-blue-400">
               2026-06-03
             </p>
-            <p className="mt-2">
+            <a
+              href="/echo-r"
+              className="mt-2 block font-bold hover:text-blue-400"
+            >
               ECHO-R Official Website Released
-            </p>
+            </a>
           </div>
 
           <div className="rounded-2xl border border-white/10 p-6">
             <p className="text-blue-400">
               2026-06-03
             </p>
-            <p className="mt-2">
+            <a
+              href="https://forms.gle/yo2GDv3oGUpUH4Uy8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block font-bold hover:text-blue-400"
+            >
               Founder Applications Open
-            </p>
+            </a>
           </div>
 
         </div>
