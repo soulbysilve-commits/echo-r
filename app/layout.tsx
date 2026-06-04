@@ -46,11 +46,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.png",
   },
-};
 
-verification: {
-  google: <meta name="google-site-verification" content="zTzMldPN667k36SlPjZjDRhLJJ4unLrspFcD5Ki7gTc" />,
-},
+  // verification は metadata オブジェクトの中に記述し、値のみを指定します
+  verification: {
+    google: "zTzMldPN667k36SlPjZjDRhLJJ4unLrspFcD5Ki7gTc",
+  },
+};
 
 export default function RootLayout({
   children,
