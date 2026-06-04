@@ -48,6 +48,10 @@ export const metadata: Metadata = {
   },
 };
 
+verification: {
+  google: <meta name="google-site-verification" content="zTzMldPN667k36SlPjZjDRhLJJ4unLrspFcD5Ki7gTc" />,
+},
+
 export default function RootLayout({
   children,
 }: Readonly<{
