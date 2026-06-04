@@ -13,13 +13,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ECHO-R | Persistent AI Personality",
-  description: "Persistent AI Personality Architecture by Veritas Forge",
+  title: "Veritas Forge",
+  description:
+    "AI Personality Research • Memory Continuity • Governance Systems",
+
   openGraph: {
-    title: "ECHO-R",
-    description: "Persistent AI Personality Architecture",
-    images: ["/logo.png"],
+    title: "Veritas Forge",
+    description:
+      "AI Personality Research • Memory Continuity • Governance Systems",
+    url: "https://echo-r.veritasforge.net",
+    siteName: "Veritas Forge",
+    images: [
+      {
+        url: "https://echo-r.veritasforge.net/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Veritas Forge / ECHO-R",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Veritas Forge",
+    description:
+      "AI Personality Research • Memory Continuity • Governance Systems",
+    images: ["https://echo-r.veritasforge.net/og-image.png"],
+  },
+
   icons: {
     icon: "/logo.png",
   },
