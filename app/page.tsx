@@ -5,27 +5,20 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       {/* Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.png"
-              alt="Veritas Forge"
-              width={36}
-              height={36}
-            />
-            <span className="font-bold tracking-widest">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
+          <div className="flex items-center gap-2">
+            <Image src="/logo.png" alt="Veritas Forge" width={28} height={28} />
+            <span className="text-sm font-bold tracking-widest md:text-base">
               VERITAS FORGE
             </span>
           </div>
 
-          <div className="flex gap-8 text-sm">
+          <div className="flex items-center gap-4 text-xs md:gap-8 md:text-sm">
             <a href="/">HOME</a>
             <a href="/echo-r">ECHO-R</a>
             <a href="/Contact">Contact</a>
-            <a href="/About">About Us</a>
+            <a href="/About">About</a>
           </div>
-
         </div>
       </nav>
 
