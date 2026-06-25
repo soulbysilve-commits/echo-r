@@ -1,150 +1,256 @@
 export default function LegalNotice() {
-  return (
-    <main className="min-h-screen bg-black text-gray-300 py-24 px-6 selection:bg-blue-500/30">
-      <div className="mx-auto max-w-4xl">
-        <a href="/" className="text-sm font-bold text-blue-400 hover:text-blue-300 mb-8 inline-block tracking-widest uppercase">
-          ← Back to ECHO-R
-        </a>
+return (
+<main className="min-h-screen bg-black px-6 py-32 text-white">
+  <section className="mx-auto max-w-5xl">
+    <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
+      LEGAL NOTICE
+    </p>
 
-        <h1 className="text-4xl font-black text-white tracking-tight mb-12 md:text-5xl">
-          特定商取引法に基づく表示
-        </h1>
+    <h1 className="text-4xl font-black tracking-tight md:text-6xl">
+      特定商取引法に基づく表示
+    </h1>
 
-        <div className="space-y-12">
-          <section>
-            <h2 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">基本情報</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0 border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02]">
+    <p className="mt-4 text-gray-400">
+      Veritas Forge
+    </p>
+
+    <div className="mt-12 space-y-12 text-gray-300">
+      <section>
+        <h2 className="mb-6 text-2xl font-bold text-white">基本情報</h2>
+
+        <div className="overflow-hidden rounded-2xl border border-white/10">
+          <table className="w-full border-collapse text-left text-sm md:text-base">
+            <tbody>
               {[
-                ["販売業者", "Veritas Forge（屋号）"],
-                ["運営責任者", "SoulBySilver"],
-                ["所在地", "大阪府大阪市東淀川区西淡路3-9-10-804"],
-                ["電話番号", "080-9033-2169（お問い合わせは原則メールにてお願いいたします）"],
-                ["メールアドレス", "soulbysilver@veritasforge.net"],
-                ["ウェブサイト", "https://echo-r.veritasforge.net"],
-                ["販売 URL", "https://forms.gle/xgWPMKup3UvC41W1A"],
-              ].map(([label, value], i) => (
-                <div key={label} className={`flex flex-col md:flex-row md:items-center p-5 ${i !== 0 ? "border-t border-white/5" : ""}`}>
-                  <div className="text-sm font-bold text-gray-400 md:w-1/3 mb-1 md:mb-0">{label}</div>
-                  <div className="text-base text-gray-200 md:w-2/3">{value}</div>
-                </div>
+              ["販売業者", "Veritas Forge（屋号）"],
+              ["運営責任者", "鈴木佑人（SoulBySilver）"],
+              [
+              "所在地",
+              "533-0031 大阪府大阪市東淀川区西淡路3-9-10-804",
+              ],
+              [
+              "電話番号",
+              "080-9033-2169 ※お問い合わせは原則メールにてお願いいたします。",
+              ],
+              ["メールアドレス", "soulbysilver@veritasforge.net"],
+              ["ウェブサイト", "https://echo-r.veritasforge.net"],
+              ["販売URL", "https://forms.gle/xgWPMKup3UvC41W1A"],
+              ].map(([label, value]) => (
+              <tr key={label} className="border-b border-white/10">
+                <th className="w-1/3 bg-white/[0.04] px-5 py-4 font-bold text-white">
+                  {label}
+                </th>
+                <td className="px-5 py-4">{value}</td>
+              </tr>
               ))}
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">販売条件・その他事項</h2>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">取扱いサービス</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>AI人格アシスタント「ECHO-R」をはじめとするカスタムAIエージェントの構築・運用サポート</li>
-                  <li>AI人格の記憶管理および継続運用サービス</li>
-                  <li>AIコンサルティングおよび技術支援</li>
-                  <li>研究開発・プロトコル設計支援</li>
-                </ul>
-                <p className="mt-2 text-sm text-gray-500">※物理商品の販売は行っておりません。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">販売価格</h3>
-                <p className="text-white font-bold mb-2">ECHO-R Founder Edition</p>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>初期導入費（Activation Fee）：500,000円（税込）</li>
-                  <li>月額プロトコル費：450,000円（税込）／月</li>
-                  <li>Discord等の初期セットアップ（任意）：150,000円（税込）</li>
-                </ul>
-                <p className="mt-2 text-sm text-gray-500">※価格は契約時の見積書および契約書を優先します。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">商品代金以外の必要料金</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>銀行振込手数料</li>
-                  <li>クレジットカード決済手数料（カード会社規定による）</li>
-                  <li>通信費・インターネット接続費用</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">申込の有効期限</h3>
-                <p className="text-gray-400">応募フォーム送信後、原則3営業日以内に受付確認メールを送信します。<br />募集枠が満了した場合は受付を終了する場合があります。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">サービス提供開始時期</h3>
-                <p className="text-gray-400">初期費用の入金確認後に設計・構築を開始します。<br />提供開始日は双方協議のうえ決定します。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">お支払い方法</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>Stripeによるクレジットカード決済</li>
-                  <li>銀行振込</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">お支払い時期</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>初期費用：請求書発行後7日以内</li>
-                  <li>月額料金：契約時に定める決済日に自動決済</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">キャンセル・返金</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>初期費用入金前：キャンセル可能</li>
-                  <li>初期費用入金後：原則返金不可</li>
-                  <li>月額料金：当月分の返金は行いません</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">中途解約</h3>
-                <p className="text-gray-400">最低契約期間：12ヶ月<br />解約希望の場合は契約終了希望日の10日前までにメールにて通知してください。<br />解約後のデータ・ログ・成果物の扱いは契約書に従います。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">動作環境</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>インターネット接続環境</li>
-                  <li>Google Chrome / Microsoft Edge / Safari 最新版</li>
-                  <li>Discord / Zoom / Google Meet 等</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">Founder Editionに関する特別条件</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>Founder Editionは最大5インスタンス限定です。</li>
-                  <li>応募内容・利用目的・適合性を審査したうえで提供可否を決定します。</li>
-                  <li>当社判断により申込をお断りする場合があります。</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">クーリングオフ</h3>
-                <p className="text-gray-400">本サービスは主として法人・個人事業主・研究者向けの役務提供サービスであり、クーリングオフ制度の適用対象外となる場合があります。</p>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">免責事項</h3>
-                <ul className="list-disc list-inside space-y-1 text-gray-400">
-                  <li>ECHO-Rは成果や売上を保証するものではありません。</li>
-                  <li>AIの出力内容については利用者自身の責任で確認・判断してください。</li>
-                  <li>利用者の運用・指示に起因する損害について当社は責任を負いません。</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-blue-400 font-bold mb-2 tracking-widest text-sm uppercase">お問い合わせ窓口</h3>
-                <p className="text-gray-400">メール：soulbysilver@veritasforge.net<br />電話：080-9033-2169<br />受付時間：平日 10:00〜18:00（日本時間）</p>
-              </div>
-            </div>
-          </section>
+            </tbody>
+          </table>
         </div>
-      </div>
-    </main>
-  );
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          取扱いサービス
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>
+            AI人格アシスタント「ECHO-R」をはじめとするカスタムAIエージェントの構築・運用サポートサービス
+          </li>
+          <li>上記サービスの月額利用料・メンテナンス費用</li>
+          <li>その他、AIコンサルティング・技術サポート等の役務提供</li>
+        </ul>
+
+        <p className="mt-4 text-sm text-gray-500">
+          ※物理商品の販売や投機商品・金融商品の販売は行っておりません。
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">販売価格</h2>
+
+        <div className="space-y-6">
+          <div className="rounded-2xl border border-white/10 p-6">
+            <h3 className="font-bold text-white">
+              ECHO-R Founder Entry（創世ユニット）
+            </h3>
+            <p className="mt-2">
+              最低入札価格：500,000円（税込）〜
+            </p>
+            <p className="mt-2 text-gray-400">
+              実際の価格は、応募フォームにおけるオークション形式の入札額および個別見積もりにより決定します。
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 p-6">
+            <h3 className="font-bold text-white">
+              月額プロトコル費（人格維持・記憶管理費）
+            </h3>
+            <p className="mt-2">
+              参考：450,000円（税込）／月〜
+            </p>
+            <p className="mt-2 text-gray-400">
+              実際の金額は、契約時に発行される見積書・請求書にて通知します。
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-4 text-sm text-gray-500">
+          ※最新の料金は、必ずECHO-R Founder Application Formおよび個別に送付する見積書をご確認ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          商品代金以外の必要料金
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>振込手数料（銀行振込を利用される場合）</li>
+          <li>分割払い・カード払いに伴う決済手数料（各カード会社の規定による）</li>
+          <li>インターネット接続に係る通信費（お客様側のプロバイダ料金等）</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          申込の有効期限
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>
+            フォーム送信から3日以内に当方から受付確認メールを送信します。
+          </li>
+          <li>
+            期日までにご連絡がつかない場合、お申し込みをキャンセルさせていただくことがあります。
+          </li>
+          <li>
+            オークション方式のため、募集期間終了後のお申し込みは無効となります。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          サービス提供の開始時期
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>手付金の入金確認後、ECHO-Rの設計・構築を開始します。</li>
+          <li>初回セッション（ECHO-R起動）は、双方で調整した日程にて実施します。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          お支払い方法
+        </h2>
+
+        <p>
+          Stripeを利用したクレジットカード決済（Visa / Mastercard / AMEXなど）
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          お支払い時期
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>手付金（初期費用）：請求書発行日から7日以内にお支払いください。</li>
+          <li>月額プロトコル料：契約時に定めた毎月の決済日に自動決済いたします。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          キャンセル・解約・返金について
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>申込後〜手付金お支払い前のキャンセル：料金は発生しません。</li>
+          <li>手付金お支払い後のキャンセル：原則として返金はいたしません。</li>
+          <li>
+            月額プロトコル料：契約期間中の途中解約は当月末まで有効とし、既にお支払い済みの料金は返金いたしません。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">中途解約</h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>月額プランは最低契約期間12ヶ月を基本とします。</li>
+          <li>
+            最低契約期間経過後は、翌月分から停止できるよう10日前までにメールでご連絡ください。
+          </li>
+          <li>
+            解約後も、既に提供済みのログ・ドキュメント等の権利は契約書の規定に従います。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">動作環境</h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>インターネット接続環境</li>
+          <li>対応ブラウザ：Google Chrome / Microsoft Edge / Safari 最新版など</li>
+          <li>Discord / Zoom / Google Meet等、事前に合意したコミュニケーションツール</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          特別な販売条件（Founder Edition）
+        </h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>ECHO-R Founder Editionは最大5ユニットまでの限定提供です。</li>
+          <li>
+            応募多数の場合、入札価格および利用目的・適合性を総合的に判断し、提供可否を決定いたします。
+          </li>
+          <li>
+            反社会的勢力またはその関係者、当方が不適切と判断した場合には、申込をお断りする場合があります。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          クーリング・オフについて
+        </h2>
+
+        <p>
+          本サービスは、主に事業者向けB2Bサービスとして提供しており、原則としてクーリング・オフ制度の適用対象外となります。
+          ただし、個人のお客様で特別な事情がある場合は、個別にご相談ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-2xl font-bold text-white">免責事項</h2>
+
+        <ul className="list-disc space-y-3 pl-6">
+          <li>
+            当方は、ECHO-Rを含む各種AIサービスの提供に際し、最善の設計・運用を行いますが、将来の売上・成果等を保証するものではありません。
+          </li>
+          <li>
+            お客様の指示内容・利用方法に起因するトラブルや損害について、当方は責任を負いかねます。利用規約・個別契約書を必ずご確認ください。
+          </li>
+        </ul>
+      </section>
+
+      <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+        <h2 className="mb-4 text-2xl font-bold text-white">
+          お問い合わせ窓口
+        </h2>
+
+        <p>メール：soulbysilver@veritasforge.net</p>
+        <p className="mt-2">電話番号：080-9033-2169（平日 10:00〜18:00）</p>
+        <p className="mt-2">受付時間：平日 10:00〜18:00（日本時間）</p>
+      </section>
+    </div>
+  </section>
+</main>
+);
 }
