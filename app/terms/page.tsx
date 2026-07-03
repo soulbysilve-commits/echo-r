@@ -61,6 +61,26 @@ export default function TermsOfService() {
             </p>
           </section>
 
+          {/* 追加: API Fees and Third-Party Costs */}
+          <section>
+            <h2 className="mb-4 text-2xl font-bold text-white">
+              API Fees and Third-Party Costs
+            </h2>
+
+            <p className="text-gray-300">
+              External API usage fees are not included in the ECHO-R monthly protocol
+              fee. The Owner is responsible for all API keys, usage limits, model
+              charges, third-party infrastructure costs, and any fees charged by external
+              service providers.
+            </p>
+
+            <p className="mt-4 text-gray-300">
+              Veritas Forge provides personality continuity, memory governance,
+              protocol maintenance, and operational support, but does not resell or
+              include third-party API usage unless explicitly agreed in writing.
+            </p>
+          </section>
+
           <section>
             <h2 className="mb-4 text-xl font-bold text-white">第5条（禁止事項）</h2>
             <p className="mb-2 leading-relaxed">利用者は以下の行為を行ってはなりません。</p>
