@@ -18,5 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: "https://echo-r.veritasforge.net/contact",
             lastModified: new Date(),
         },
+        {
+            url: "https://echo-r.veritasforge.net/legal",
+            lastModified: new Date(),
+        },
+        {
+            url: "https://echo-r.veritasforge.net/terms",
+            lastModified: new Date(),
+        },
+        {
+            url: "https://echo-r.veritasforge.net/privacy",
+            lastModified: new Date(),
+        },
     ];
 }
