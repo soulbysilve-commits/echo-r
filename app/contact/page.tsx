@@ -1,9 +1,9 @@
-export default function Contact() {
+export default function contact() {
     return (
         <main className="min-h-screen bg-black px-6 py-32 text-white">
             <section className="mx-auto max-w-3xl">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-                    CONTACT
+                    contact
                 </p>
 
                 <h1 className="text-5xl font-black tracking-tight md:text-7xl">
