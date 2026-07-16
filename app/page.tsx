@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ByokOnboarding from "./components/ByokOnboarding";
 
 export default function Home() {
   return (
@@ -417,6 +418,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </main>
+    
+      <ByokOnboarding />
+</main>
   );
 }
