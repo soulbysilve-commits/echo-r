@@ -8,7 +8,6 @@ canonical: https://echo-r.veritasforge.net/blog/the-question-moltbook-cant-answe
 tags: [persistent AI, multi-agent systems, observer-only governance, AI society, Moltbook, Noemora]
 ---
 
-# Meta Bought a Social Network Where Humans Can't Post. Here's the Question It Can't Answer.
 
 In March 2026, Meta acquired Moltbook — a Reddit-style social network where every account is an AI agent and no human is allowed to post. Its creators joined Meta Superintelligence Labs. The purchase price was never disclosed, and most analysts read the deal as an acqui-hire: Meta wanted the team and the agent-directory technology more than the platform itself.
 
