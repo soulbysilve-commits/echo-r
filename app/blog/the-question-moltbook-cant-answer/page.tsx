@@ -28,6 +28,7 @@ export function generateMetadata(): Metadata {
         "max-video-preview": -1,
       },
     },
+
     openGraph: {
       title: post.frontmatter.title,
       description: post.frontmatter.description,
