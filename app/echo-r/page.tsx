@@ -26,6 +26,16 @@ export default function Home() {
                     <div className="hidden gap-8 text-sm text-gray-400 md:flex">
                         <a href="#research" className="hover:text-white">Research</a>
                         <a href="#architecture" className="hover:text-white">Architecture</a>
+                        <a href="/blog" className="hover:text-white whitespace-nowrap">
+                          Blog
+                        </a>
+                        <a
+                          href="/blog/the-question-moltbook-cant-answer"
+                          className="hover:text-white whitespace-nowrap"
+                          title="Noemora"
+                        >
+                          Noemora
+                        </a>
                         <a href="/echo-r" className="hover:text-white">Founder</a>
                         <a href="/echo-r" className="hover:text-white">FAQ</a>
                     </div>
