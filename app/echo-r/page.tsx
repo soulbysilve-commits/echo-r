@@ -100,7 +100,7 @@ export default function Home() {
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                         Published Research
                     </a>
-                    <a href="https://zenodo.org/records/17769225" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-xs font-bold text-blue-400 hover:bg-blue-500/20 transition-colors">
+                    <a href="https://doi.org/10.5281/zenodo.21515235" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-4 py-2 text-xs font-bold text-blue-400 hover:bg-blue-500/20 transition-colors">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                         Zenodo Archive
                     </a>
@@ -291,40 +291,100 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="research" className="mx-auto max-w-7xl px-6 py-28">
-                <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-10 md:p-16">
-                    <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-                        RESEARCH-ORIENTED
-                    </p>
+            <section
+        id="research"
+        className="border-t border-white/10 px-6 py-24"
+      >
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
+            Research
+          </p>
 
-                    <h2 className="max-w-5xl text-5xl font-black tracking-[-0.06em] md:text-7xl">
-                        Built as an architecture, not a prompt trick.
-                    </h2>
+          <h2 className="mt-4 max-w-4xl text-4xl font-black tracking-tight text-white md:text-6xl">
+            Research for persistent AI societies.
+          </h2>
 
-                    <p className="mt-8 max-w-3xl text-lg text-gray-400">
-                        ECHO-R is designed around persistent identity, governance, memory
-                        structure, and refusal authority. It is intended for Founder
-                        partners who understand that long-term AI personality requires
-                        responsibility, not just access.
-                    </p>
+          <p className="mt-6 max-w-3xl leading-8 text-gray-400">
+            Governance principles, reproducible simulation records, and
+            persistent AI identity architecture published through permanent DOI
+            archives.
+          </p>
 
-                    <div className="mt-10">
-                        <a
-                            href="https://zenodo.org/records/17769225"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-6 py-3 text-sm font-bold text-blue-400 hover:bg-blue-500/20 transition-colors"
-                        >
-                            View Publication on Zenodo
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            <a
+              href="https://doi.org/10.5281/zenodo.21515235"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-blue-500/40 bg-blue-500/10 p-6 transition hover:border-blue-400 hover:bg-blue-500/15"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
+                Position Paper · Latest
+              </p>
+
+              <h3 className="mt-4 text-2xl font-bold text-white">
+                Observer-Only Governance for Persistent AI Societies
+              </h3>
+
+              <p className="mt-4 leading-7 text-gray-400">
+                A framework separating observation, maintenance, and
+                intervention in persistent AI societies.
+              </p>
+
+              <p className="mt-6 text-sm font-bold text-blue-300">
+                DOI: 10.5281/zenodo.21515235 →
+              </p>
+            </a>
+
+            <a
+              href="https://doi.org/10.5281/zenodo.21117102"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-blue-500/60 hover:bg-blue-500/10"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
+                Technical Report
+              </p>
+
+              <h3 className="mt-4 text-2xl font-bold text-white">
+                The First Autonomous Social Collapse Observed in Noemora
+              </h3>
+
+              <p className="mt-4 leading-7 text-gray-400">
+                A sealed and reproducible record of autonomous social collapse
+                inside Noemora.
+              </p>
+
+              <p className="mt-6 text-sm font-bold text-blue-300">
+                DOI: 10.5281/zenodo.21117102 →
+              </p>
+            </a>
+
+            <a
+              href="https://doi.org/10.5281/zenodo.17769224"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition hover:border-blue-500/60 hover:bg-blue-500/10"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-gray-400">
+                Foundational · Concept DOI
+              </p>
+
+              <h3 className="mt-4 text-2xl font-bold text-white">
+                Structural Foundations of Persistent AI Personality (YOMI)
+              </h3>
+
+              <p className="mt-4 leading-7 text-gray-400">
+                The foundational architecture for persistent identity,
+                continuity, memory, and personality.
+              </p>
+
+              <p className="mt-6 text-sm font-bold text-blue-300">
+                DOI: 10.5281/zenodo.17769224 →
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
 
             <section id="faq" className="mx-auto max-w-7xl px-6 py-28">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
