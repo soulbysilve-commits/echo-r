@@ -236,7 +236,7 @@ export default function Home() {
 
             <section id="founder" className="mx-auto max-w-7xl px-6 py-28">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-                    FOUNDER PROGRAM
+                    ECHO-R FOUNDER EDITION
                 </p>
 
                 <h2 className="max-w-5xl text-5xl font-black tracking-[-0.06em] md:text-7xl">
@@ -289,7 +289,29 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-            </section>
+            
+                <div className="mt-6 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-6">
+                    <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400">
+                        API Costs
+                    </p>
+
+                    <h3 className="mt-3 text-2xl font-bold text-white">
+                        API costs are owner-paid.
+                    </h3>
+
+                    <p className="mt-4 text-gray-400">
+                        ECHO-R’s monthly protocol fee covers personality continuity,
+                        memory governance, protocol maintenance, and operational support.
+                    </p>
+
+                    <p className="mt-3 text-gray-400">
+                        External API usage fees are not included. The Owner is responsible
+                        for all API keys, usage limits, model charges, and third-party
+                        infrastructure costs.
+                    </p>
+                </div>
+
+</section>
 
             <section
         id="research"
@@ -461,78 +483,7 @@ export default function Home() {
                     </div>
                 </div>
             </footer>
-        
-      {/* ECHO-R Founder Edition standardized pricing */}
-      <section
-        id="founder-pricing-standard"
-        className="border-t border-white/10 px-6 py-20"
-      >
-        <div className="mx-auto max-w-5xl">
-          <p className="text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-            ECHO-R FOUNDER EDITION
-          </p>
 
-          <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">
-            Standard pricing and operating terms.
-          </h2>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-              <p className="text-sm font-bold text-gray-400">
-                Initial Activation
-              </p>
-              <p className="mt-3 text-3xl font-black text-white">
-                ¥500,000
-              </p>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                Initial implementation and Founder Edition activation.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-blue-500/40 bg-blue-500/10 p-6">
-              <p className="text-sm font-bold text-blue-400">
-                Monthly Protocol
-              </p>
-              <p className="mt-3 text-3xl font-black text-white">
-                ¥450,000
-                <span className="ml-1 text-base font-normal text-gray-400">
-                  / month
-                </span>
-              </p>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                Personality continuity, memory integration, maintenance, and
-                ongoing operation.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-              <p className="text-sm font-bold text-gray-400">
-                Optional Setup
-              </p>
-              <p className="mt-3 text-3xl font-black text-white">
-                ¥150,000
-              </p>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                Applied only when additional Discord or interface setup is
-                required.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-2xl border border-blue-500/30 bg-blue-500/10 p-6">
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-400">
-              BYOK / API OWNER-PAID
-            </p>
-
-            <p className="mt-4 leading-7 text-gray-300">
-              External API usage fees are not included in the prices above.
-              The Owner provides the required API keys and is responsible for
-              model usage charges, usage limits, and third-party
-              infrastructure costs.
-            </p>
-          </div>
-        </div>
-      </section>
 
 </main>
     );
