@@ -408,6 +408,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ECHO Joint Validation CTA */}
+      <section className="border-t border-white/10 px-6 py-20">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-blue-500/30 bg-blue-500/10 p-7 md:p-10">
+          <p className="text-sm font-bold uppercase tracking-[0.3em] text-blue-400">
+            ECHO Joint Validation
+          </p>
+
+          <h2 className="mt-4 text-3xl font-black tracking-tight text-white md:text-4xl">
+            Verify whether an AI character remains the same entity after a model change.
+          </h2>
+
+          <p className="mt-6 max-w-4xl leading-8 text-gray-300">
+            With ECHO-R Founder Edition, we structure personality, critical
+            memories, relationships, and decision principles, then compare
+            consistency and correction propagation before and after the model
+            change.
+          </p>
+
+          <div className="mt-7 space-y-3 border-t border-white/10 pt-6 text-gray-300">
+            <p>
+              <strong className="text-white">
+                Paid joint validation:
+              </strong>{" "}
+              ¥500,000
+            </p>
+
+            <p>
+              Initial consultation and issue scoping are available by email or
+              text chat.
+            </p>
+          </div>
+
+          <a
+            href="/contact"
+            className="mt-8 inline-flex rounded-full bg-blue-500 px-7 py-4 font-bold text-black transition hover:bg-blue-400"
+          >
+            Discuss ECHO Joint Validation via Text
+          </a>
+        </div>
+      </section>
+
+
       <section id="faq" className="mx-auto max-w-7xl px-6 py-28">
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
           FAQ
