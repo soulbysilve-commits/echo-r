@@ -420,7 +420,7 @@ export default function Home() {
           </h2>
 
           <p className="mt-6 max-w-4xl leading-8 text-gray-300">
-            With ECHO-R Founder Edition, we structure personality, critical
+            With ECHO Founder Edition, we structure personality, critical
             memories, relationships, and decision principles, then compare
             consistency and correction propagation before and after the model
             change.
@@ -444,7 +444,7 @@ export default function Home() {
             href="/contact"
             className="mt-8 inline-flex rounded-full bg-blue-500 px-7 py-4 font-bold text-black transition hover:bg-blue-400"
           >
-            Discuss ECHO Joint Validation via Text
+            Discuss ECHO Joint Validation by Text
           </a>
         </div>
       </section>
