@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import EarlyAccessForm from "./EarlyAccessForm";
 
@@ -154,24 +155,70 @@ export default function EchoAppPage() {
             </div>
           </div>
 
-          {/* Future media slot */}
-          <div className="mt-20 rounded-[2rem] border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-transparent p-3">
-            <div className="flex min-h-[280px] items-center justify-center rounded-[1.5rem] border border-white/[0.06] bg-black/60 px-8 text-center md:min-h-[420px]">
-              <div>
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-blue-300/20 bg-blue-400/[0.08] text-2xl font-black text-blue-200">
-                  E
-                </div>
+          {/* ECHO Character Visual */}
+          <div className="mt-20 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-7 md:p-10">
+              <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
+                MEET ECHO
+              </p>
 
-                <p className="mt-6 text-sm font-bold tracking-[0.25em] text-gray-400">
+              <h2 className="mt-5 text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
+                あなたが最初に出会うECHO。
+              </h2>
+
+              <p className="mt-6 leading-8 text-gray-400">
+                ECHO Appを代表するビジュアルです。
+                ECHOは特定のAIモデルそのものを人格とはせず、
+                Identity・Memory・Relationship・Continuityを
+                ECHO側で継続する構造を目指します。
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                {[
+                  "Identity",
+                  "Memory",
+                  "Relationship",
+                  "Continuity",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/[0.08] bg-black px-4 py-2 text-xs text-gray-400"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href="#early-access"
+                className="mt-8 inline-flex rounded-full bg-white px-6 py-3 font-bold text-black transition hover:bg-blue-100"
+              >
+                Early Accessに事前登録
+              </a>
+            </div>
+
+            <div className="overflow-hidden rounded-[2rem] border border-blue-400/15 bg-white shadow-[0_0_80px_rgba(80,160,255,0.10)]">
+              <Image
+                src="/echo-app/echo-character.jpeg"
+                alt="ECHO App representative character"
+                width={1024}
+                height={1536}
+                priority
+                className="h-auto w-full"
+              />
+
+              <div className="border-t border-white/10 bg-black px-6 py-5">
+                <p className="text-xs font-bold tracking-[0.24em] text-blue-400">
                   ECHO APP
                 </p>
 
-                <p className="mt-3 text-sm text-gray-600">
-                  App preview / demo coming later
+                <p className="mt-2 text-sm text-gray-500">
+                  Representative ECHO visual · Early Access
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
