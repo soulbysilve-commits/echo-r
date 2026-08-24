@@ -34,7 +34,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            "現在、Early Access登録受付の準備中です。しばらくしてからもう一度お試しください。",
+            "現在、Early Access登録受付の準備中です。",
+          diagnostic: {
+            webhookUrlConfigured: Boolean(webhookUrl),
+            webhookSecretConfigured: Boolean(webhookSecret),
+          },
         },
         { status: 503 }
       );
