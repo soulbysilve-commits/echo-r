@@ -27,6 +27,12 @@ export default function Home() {
           <div className="hidden gap-8 text-sm text-gray-400 md:flex">
             <a href="#research" className="hover:text-white">Research</a>
             <a href="#architecture" className="hover:text-white">Architecture</a>
+              <a
+                href="/echo-app"
+                className="transition hover:text-white"
+              >
+                ECHO App
+              </a>
             <a href="/blog" className="hover:text-white whitespace-nowrap">
               Blog
             </a>
