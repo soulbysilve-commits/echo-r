@@ -388,6 +388,7 @@ export default function EchoAppPage() {
         </div>
       </section>
 
+      
       {/* Plans */}
       <section className="px-5 py-28 md:px-8 md:py-36">
         <div className="mx-auto max-w-6xl">
@@ -398,7 +399,7 @@ export default function EchoAppPage() {
               </p>
 
               <h2 className="mt-5 text-4xl font-black tracking-[-0.045em] md:text-6xl">
-                Free / Plus
+                Free / Plus / Pro
               </h2>
             </div>
 
@@ -407,7 +408,9 @@ export default function EchoAppPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+
+            {/* Free */}
             <div className="rounded-[2rem] border border-white/[0.08] p-7 md:p-9">
               <p className="text-sm text-gray-500">
                 ECHO Free
@@ -417,14 +420,20 @@ export default function EchoAppPage() {
                 Start with ECHO.
               </h3>
 
+              <p className="mt-4 text-sm leading-7 text-gray-500">
+                標準ECHOを使い始めるための基本プラン。
+              </p>
+
               <ul className="mt-8 space-y-4 text-gray-400">
                 <li>基本会話</li>
                 <li>Identity / Memory</li>
+                <li>ECHO Standard Model</li>
                 <li>広告あり予定</li>
                 <li>Early Access対象</li>
               </ul>
             </div>
 
+            {/* Plus */}
             <div className="rounded-[2rem] border border-blue-400/20 bg-blue-400/[0.04] p-7 md:p-9">
               <p className="text-sm text-blue-300">
                 ECHO Plus
@@ -434,20 +443,118 @@ export default function EchoAppPage() {
                 More continuity.
               </h3>
 
+              <p className="mt-4 text-sm leading-7 text-gray-500">
+                ECHOとの長期的な関係と継続性を強化するプラン。
+              </p>
+
               <ul className="mt-8 space-y-4 text-gray-400">
                 <li>広告なし</li>
                 <li>Memory / Continuity強化</li>
+                <li>ECHO Standard Model</li>
                 <li>追加機能</li>
                 <li>詳細は後日公開</li>
               </ul>
             </div>
+
+            {/* Pro */}
+            <div className="relative overflow-hidden rounded-[2rem] border border-blue-300/30 bg-gradient-to-b from-blue-400/[0.08] to-white/[0.02] p-7 md:p-9">
+              <div className="absolute right-5 top-5 rounded-full border border-blue-300/20 bg-blue-300/10 px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-blue-200">
+                BYOK
+              </div>
+
+              <p className="text-sm text-blue-300">
+                ECHO Pro
+              </p>
+
+              <h3 className="mt-3 text-3xl font-black">
+                Choose ECHO&apos;s engine.
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-gray-400">
+                ECHOのIdentityを維持したまま、推論に使うAI Providerを
+                自分で選択できる上位プランを予定しています。
+              </p>
+
+              <ul className="mt-8 space-y-4 text-gray-400">
+                <li>BYOK（Bring Your Own Key）</li>
+                <li>Provider / Model選択</li>
+                <li>OpenAI</li>
+                <li>Anthropic</li>
+                <li>Gemini</li>
+                <li>OpenAI-Compatible</li>
+                <li>Custom Endpoint</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-6 md:p-8">
+            <p className="text-xs font-bold tracking-[0.28em] text-blue-400">
+              MODEL INDEPENDENT
+            </p>
+
+            <h3 className="mt-4 text-2xl font-black md:text-3xl">
+              モデルを変えても、ECHOはECHOのまま。
+            </h3>
+
+            <p className="mt-5 max-w-4xl leading-8 text-gray-400">
+              ECHO Proでは、ClaudeからOpenAI、Gemini、
+              OpenAI-Compatibleなモデルなどへ推論エンジンを変更しても、
+              Identity・Memory・Relationship・Belief・Continuityは
+              Canonical ECHO Stateとしてモデルとは分離して保持する設計を目指します。
+            </p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/[0.08] bg-black p-5">
+                <p className="text-xs font-bold tracking-[0.2em] text-gray-500">
+                  ECHO STATE
+                </p>
+
+                <div className="mt-4 space-y-2 text-sm text-gray-300">
+                  <p>Identity</p>
+                  <p>Memory</p>
+                  <p>Relationship</p>
+                  <p>Belief</p>
+                  <p>Continuity</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-blue-400/15 bg-blue-400/[0.03] p-5">
+                <p className="text-xs font-bold tracking-[0.2em] text-blue-300">
+                  MODEL PROVIDER
+                </p>
+
+                <div className="mt-4 space-y-2 text-sm text-gray-400">
+                  <p>ECHO Standard</p>
+                  <p>OpenAI</p>
+                  <p>Anthropic</p>
+                  <p>Gemini</p>
+                  <p>OpenAI-Compatible</p>
+                  <p>Custom Endpoint</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-2xl border border-blue-400/15 bg-blue-400/[0.04] p-5">
+              <p className="font-bold text-white">
+                API keys stay separate from ECHO&apos;s identity.
+              </p>
+
+              <p className="mt-3 text-sm leading-7 text-gray-500">
+                BYOK用のAPIキーはiPhone Keychainで管理し、
+                Canonical State・Memory・Relationship・Conversation DBには
+                保存しない設計を予定しています。
+                ECHO側サーバへのAPIキー永続保存も行わない方向です。
+              </p>
+            </div>
           </div>
 
           <p className="mt-6 text-sm text-gray-600">
-            料金・提供内容は正式公開までに変更される場合があります。
+            各プランの料金・提供機能・対応Providerは正式公開までに
+            変更される場合があります。
           </p>
         </div>
       </section>
+
 
       {/* Noemora */}
       <section className="border-y border-white/[0.06] px-5 py-24 md:px-8">
@@ -504,8 +611,9 @@ export default function EchoAppPage() {
           </p>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600">
+            Early Accessへの事前登録は任意です。
             初期アクセス人数を制限する場合があります。
-            事前登録によって即時利用や特定時期の招待を保証するものではありません。
+            登録によって即時利用や特定時期の招待を保証するものではありません。
           </p>
 
           <div className="mx-auto mt-10 max-w-xl">
