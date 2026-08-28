@@ -1,6 +1,8 @@
+import LanguageSwitch from "../components/LanguageSwitch";
 export default function contact() {
     return (
         <main className="min-h-screen bg-black px-6 py-32 text-white">
+      <LanguageSwitch current="en" enHref="/contact" jaHref="/ja/contact" />
             <section className="mx-auto max-w-3xl">
                 <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
                     contact

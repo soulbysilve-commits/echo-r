@@ -1,18 +1,31 @@
-import LanguageSwitch from "../components/LanguageSwitch";
+import type { Metadata } from "next";
+import LanguageSwitch from "../../components/LanguageSwitch";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー | Veritas Forge",
+  alternates: {
+    canonical: "https://echo-r.veritasforge.net/ja/privacy",
+    languages: {
+      en: "https://echo-r.veritasforge.net/privacy",
+      ja: "https://echo-r.veritasforge.net/ja/privacy",
+    },
+  },
+};
+
 export default function PrivacyPolicy() {
   return (
     <main className="min-h-screen bg-black text-gray-300 py-24 px-6 selection:bg-blue-500/30">
-      <LanguageSwitch current="en" enHref="/privacy" jaHref="/ja/privacy" />
+      <LanguageSwitch current="ja" enHref="/privacy" jaHref="/ja/privacy" />
       <div className="mx-auto max-w-3xl">
-        <a href="/" className="mb-8 inline-block text-sm font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300">
-          ← Back to ECHO-R
+        <a href="/ja" className="mb-8 inline-block text-sm font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300">
+          ← ECHO-Rへ戻る
         </a>
 
         <h1 className="mb-4 text-4xl font-black tracking-tight text-white md:text-5xl">
           プライバシーポリシー
         </h1>
         <p className="mb-12 text-sm text-gray-500 uppercase tracking-widest">
-          Privacy Policy / 最終更新日：2026年6月
+          最終更新日：2026年6月
         </p>
 
         <div className="space-y-10 text-gray-400">

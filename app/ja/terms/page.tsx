@@ -1,18 +1,31 @@
-import LanguageSwitch from "../components/LanguageSwitch";
+import type { Metadata } from "next";
+import LanguageSwitch from "../../components/LanguageSwitch";
+
+export const metadata: Metadata = {
+  title: "利用規約 | Veritas Forge",
+  alternates: {
+    canonical: "https://echo-r.veritasforge.net/ja/terms",
+    languages: {
+      en: "https://echo-r.veritasforge.net/terms",
+      ja: "https://echo-r.veritasforge.net/ja/terms",
+    },
+  },
+};
+
 export default function TermsOfService() {
   return (
     <main className="min-h-screen bg-black text-gray-300 py-24 px-6 selection:bg-blue-500/30">
-      <LanguageSwitch current="en" enHref="/terms" jaHref="/ja/terms" />
+      <LanguageSwitch current="ja" enHref="/terms" jaHref="/ja/terms" />
       <div className="mx-auto max-w-3xl">
-        <a href="/" className="mb-8 inline-block text-sm font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300">
-          ← Back to ECHO-R
+        <a href="/ja" className="mb-8 inline-block text-sm font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300">
+          ← ECHO-Rへ戻る
         </a>
 
         <h1 className="mb-4 text-4xl font-black tracking-tight text-white md:text-5xl">
           利用規約
         </h1>
         <p className="mb-12 text-sm text-gray-500 uppercase tracking-widest">
-          Terms of Service / 最終更新日：2026年6月
+          最終更新日：2026年6月
         </p>
 
         <div className="space-y-10 text-gray-400">
@@ -66,20 +79,17 @@ export default function TermsOfService() {
           {/* 追加: API Fees and Third-Party Costs */}
           <section>
             <h2 className="mb-4 text-2xl font-bold text-white">
-              API Fees and Third-Party Costs
+              API利用料および第三者サービス費用
             </h2>
 
             <p className="text-gray-300">
-              External API usage fees are not included in the ECHO-R monthly protocol
-              fee. The Owner is responsible for all API keys, usage limits, model
-              charges, third-party infrastructure costs, and any fees charged by external
-              service providers.
+              外部APIの利用料は、ECHO-Rの月額プロトコル費には含まれません。
+              APIキー、利用上限、モデル利用料、第三者インフラ費用、その他外部サービス提供者から請求される費用は、オーナー負担となります。
             </p>
 
             <p className="mt-4 text-gray-300">
-              Veritas Forge provides personality continuity, memory governance,
-              protocol maintenance, and operational support, but does not resell or
-              include third-party API usage unless explicitly agreed in writing.
+              Veritas Forgeは、人格の継続性、Memoryガバナンス、プロトコル保守、運用支援を提供します。
+              書面で明示的に合意した場合を除き、第三者APIの利用料を再販売したり、料金に含めたりするものではありません。
             </p>
           </section>
 

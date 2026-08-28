@@ -1,27 +1,31 @@
-import LanguageSwitch from "../components/LanguageSwitch";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import EarlyAccessForm from "./EarlyAccessForm";
+import EarlyAccessForm from "../../echo-app/EarlyAccessForm";
+import LanguageSwitch from "../../components/LanguageSwitch";
 
 const SITE_URL = "https://echo-r.veritasforge.net";
 
 export const metadata: Metadata = {
-  title: "ECHO App | Persistent AI by Veritas Forge",
+  title: "ECHO App | 継続するAI | Veritas Forge",
   description:
-    "ECHO is a persistent AI designed around identity, memory, relationships, and continuity. Join the Early Access waitlist for the upcoming iPhone app.",
+    "ECHOは、Identity・Memory・Relationship・Continuityを継続するために設計されたAIです。iPhone版Early Accessの事前登録を受け付けています。",
   alternates: {
-    canonical: `${SITE_URL}/echo-app`,
+    canonical: `${SITE_URL}/ja/echo-app`,
+    languages: {
+      en: `${SITE_URL}/echo-app`,
+      ja: `${SITE_URL}/ja/echo-app`,
+    },
   },
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "ECHO App | Persistent AI by Veritas Forge",
+    title: "ECHO App | 継続するAI | Veritas Forge",
     description:
-      "ECHO is a persistent AI designed around identity, memory, relationships, and continuity. Join the Early Access waitlist for the upcoming iPhone app.",
-    url: `${SITE_URL}/echo-app`,
+      "ECHOは、Identity・Memory・Relationship・Continuityを継続するために設計されたAIです。iPhone版Early Accessの事前登録を受け付けています。",
+    url: `${SITE_URL}/ja/echo-app`,
     siteName: "Veritas Forge",
     type: "website",
     images: [
@@ -29,26 +33,26 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "ECHO App by Veritas Forge",
+        alt: "Veritas ForgeのECHO App",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ECHO App | Persistent AI by Veritas Forge",
+    title: "ECHO App | 継続するAI | Veritas Forge",
     description:
-      "ECHO is a persistent AI designed around identity, memory, relationships, and continuity. Join the Early Access waitlist for the upcoming iPhone app.",
+      "ECHOは、Identity・Memory・Relationship・Continuityを継続するために設計されたAIです。iPhone版Early Accessの事前登録を受け付けています。",
     images: [`${SITE_URL}/og-image.png`],
   },
 };
 
 const features = [
   {
-    title: "Long-Term Memory",
+    title: "長期Memory",
     text: "単発の会話履歴ではなく、ECHOが継続するためのMemoryを管理します。",
   },
   {
-    title: "Identity Continuity",
+    title: "Identityの継続",
     text: "利用するAIモデルが変わっても、Identityをモデルそのものに依存させない構造を目指します。",
   },
   {
@@ -56,15 +60,15 @@ const features = [
     text: "ユーザーとの関係性を、会話ログとは別の継続状態として扱います。",
   },
   {
-    title: "Local First",
+    title: "ローカルファースト",
     text: "人格・記憶・会話データは、可能な限りユーザー端末側で管理します。",
   },
   {
-    title: "Model Independent",
+    title: "モデル非依存",
     text: "特定のLLM一社にECHOの存在そのものを依存させない設計を目指します。",
   },
   {
-    title: "Client-Owned State",
+    title: "クライアント所有State",
     text: "Canonical ECHO Stateの所有主体をクライアント側に置くことを基本方針とします。",
   },
 ];
@@ -72,12 +76,12 @@ const features = [
 export default function EchoAppPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
-      <LanguageSwitch current="en" enHref="/echo-app" jaHref="/ja/echo-app" />
+      <LanguageSwitch current="ja" enHref="/echo-app" jaHref="/ja/echo-app" />
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/75 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:px-8">
           <Link
-            href="/"
+            href="/ja"
             className="flex items-center gap-3"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/[0.05] text-xs font-black">
@@ -93,7 +97,7 @@ export default function EchoAppPage() {
 
           <div className="flex items-center gap-5">
             <Link
-              href="/"
+              href="/ja"
               className="hidden text-sm text-gray-500 transition hover:text-white sm:block"
             >
               Veritas Forge
@@ -103,7 +107,7 @@ export default function EchoAppPage() {
               href="#early-access"
               className="rounded-full border border-white/15 px-4 py-2 text-xs font-bold transition hover:bg-white hover:text-black"
             >
-              Early Access
+              事前登録
             </a>
           </div>
         </div>
@@ -161,7 +165,7 @@ export default function EchoAppPage() {
           <div className="mt-20 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-7 md:p-10">
               <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
-                MEET ECHO
+                ECHOと出会う
               </p>
 
               <h2 className="mt-5 text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
@@ -215,7 +219,7 @@ export default function EchoAppPage() {
                 </p>
 
                 <p className="mt-2 text-sm text-gray-500">
-                  Representative ECHO visual · Early Access
+                  ECHO App代表ビジュアル・Early Access
                 </p>
               </div>
             </div>
@@ -228,7 +232,7 @@ export default function EchoAppPage() {
       <section className="border-t border-white/[0.06] px-5 py-28 md:px-8 md:py-36">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
-            WHAT IS ECHO
+            ECHOとは
           </p>
 
           <h2 className="mt-5 max-w-4xl text-4xl font-black tracking-[-0.045em] md:text-6xl">
@@ -279,7 +283,7 @@ export default function EchoAppPage() {
               </div>
 
               <div className="rounded-xl border border-white/[0.08] bg-white/[0.04] px-5 py-4 text-center text-sm">
-                AI Model
+                AIモデル
               </div>
 
               <div className="my-7 text-center text-gray-600">
@@ -287,7 +291,7 @@ export default function EchoAppPage() {
               </div>
 
               <div className="rounded-xl border border-white/[0.08] px-5 py-4 text-center text-sm text-gray-400">
-                Response
+                応答
               </div>
             </div>
 
@@ -314,7 +318,7 @@ export default function EchoAppPage() {
       <section className="px-5 py-28 md:px-8 md:py-36">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
-            CORE DESIGN
+            中核設計
           </p>
 
           <h2 className="mt-5 max-w-4xl text-4xl font-black tracking-[-0.045em] md:text-6xl">
@@ -346,7 +350,7 @@ export default function EchoAppPage() {
       <section className="border-y border-white/[0.06] bg-white/[0.015] px-5 py-28 md:px-8 md:py-36">
         <div className="mx-auto max-w-6xl">
           <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
-            PRIVACY / LOCAL FIRST
+            プライバシー / ローカルファースト
           </p>
 
           <h2 className="mt-5 max-w-4xl text-4xl font-black tracking-[-0.045em] md:text-6xl">
@@ -397,7 +401,7 @@ export default function EchoAppPage() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <p className="text-xs font-bold tracking-[0.3em] text-blue-400">
-                PLANS
+                プラン
               </p>
 
               <h2 className="mt-5 text-4xl font-black tracking-[-0.045em] md:text-6xl">
@@ -419,7 +423,7 @@ export default function EchoAppPage() {
               </p>
 
               <h3 className="mt-3 text-3xl font-black">
-                Start with ECHO.
+                ECHOを使い始める。
               </h3>
 
               <p className="mt-4 text-sm leading-7 text-gray-500">
@@ -429,7 +433,7 @@ export default function EchoAppPage() {
               <ul className="mt-8 space-y-4 text-gray-400">
                 <li>基本会話</li>
                 <li>Identity / Memory</li>
-                <li>ECHO Standard Model</li>
+                <li>ECHO Standardモデル</li>
                 <li>広告あり予定</li>
                 <li>Early Access対象</li>
               </ul>
@@ -442,7 +446,7 @@ export default function EchoAppPage() {
               </p>
 
               <h3 className="mt-3 text-3xl font-black">
-                More continuity.
+                継続性を、さらに強く。
               </h3>
 
               <p className="mt-4 text-sm leading-7 text-gray-500">
@@ -452,7 +456,7 @@ export default function EchoAppPage() {
               <ul className="mt-8 space-y-4 text-gray-400">
                 <li>広告なし</li>
                 <li>Memory / Continuity強化</li>
-                <li>ECHO Standard Model</li>
+                <li>ECHO Standardモデル</li>
                 <li>追加機能</li>
                 <li>詳細は後日公開</li>
               </ul>
@@ -469,29 +473,29 @@ export default function EchoAppPage() {
               </p>
 
               <h3 className="mt-3 text-3xl font-black">
-                Choose ECHO&apos;s engine.
+                ECHOの推論エンジンまで選ぶ。
               </h3>
 
               <p className="mt-4 text-sm leading-7 text-gray-400">
-                ECHOのIdentityを維持したまま、推論に使うAI Providerを
+                ECHOのIdentityを維持したまま、推論に使うAIプロバイダーを
                 自分で選択できる上位プランを予定しています。
               </p>
 
               <ul className="mt-8 space-y-4 text-gray-400">
                 <li>BYOK（Bring Your Own Key）</li>
-                <li>Provider / Model選択</li>
+                <li>プロバイダー / モデル選択</li>
                 <li>OpenAI</li>
                 <li>Anthropic</li>
                 <li>Gemini</li>
                 <li>OpenAI-Compatible</li>
-                <li>Custom Endpoint</li>
+                <li>カスタムエンドポイント</li>
               </ul>
             </div>
           </div>
 
           <div className="mt-8 rounded-[2rem] border border-white/[0.08] bg-white/[0.025] p-6 md:p-8">
             <p className="text-xs font-bold tracking-[0.28em] text-blue-400">
-              MODEL INDEPENDENT
+              モデル非依存
             </p>
 
             <h3 className="mt-4 text-2xl font-black md:text-3xl">
@@ -508,7 +512,7 @@ export default function EchoAppPage() {
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-white/[0.08] bg-black p-5">
                 <p className="text-xs font-bold tracking-[0.2em] text-gray-500">
-                  ECHO STATE
+                  ECHOの状態
                 </p>
 
                 <div className="mt-4 space-y-2 text-sm text-gray-300">
@@ -522,7 +526,7 @@ export default function EchoAppPage() {
 
               <div className="rounded-2xl border border-blue-400/15 bg-blue-400/[0.03] p-5">
                 <p className="text-xs font-bold tracking-[0.2em] text-blue-300">
-                  MODEL PROVIDER
+                  モデルプロバイダー
                 </p>
 
                 <div className="mt-4 space-y-2 text-sm text-gray-400">
@@ -531,14 +535,14 @@ export default function EchoAppPage() {
                   <p>Anthropic</p>
                   <p>Gemini</p>
                   <p>OpenAI-Compatible</p>
-                  <p>Custom Endpoint</p>
+                  <p>カスタムエンドポイント</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 rounded-2xl border border-blue-400/15 bg-blue-400/[0.04] p-5">
               <p className="font-bold text-white">
-                API keys stay separate from ECHO&apos;s identity.
+                APIキーはECHOのIdentityとは分離して管理します。
               </p>
 
               <p className="mt-3 text-sm leading-7 text-gray-500">
@@ -578,10 +582,10 @@ export default function EchoAppPage() {
             </p>
 
             <Link
-              href="/blog/the-question-moltbook-cant-answer"
+              href="/ja/blog/the-question-moltbook-cant-answer"
               className="mt-7 inline-flex text-sm font-bold text-blue-300 transition hover:text-white"
             >
-              Read about Noemora →
+              Noemoraについて読む →
             </Link>
           </div>
         </div>
@@ -638,17 +642,17 @@ export default function EchoAppPage() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-3">
-            <Link href="/echo-r" className="hover:text-white">
+            <Link href="/ja/echo-r" className="hover:text-white">
               ECHO
             </Link>
-            <Link href="/privacy" className="hover:text-white">
-              Privacy Policy
+            <Link href="/ja/privacy" className="hover:text-white">
+              プライバシーポリシー
             </Link>
-            <Link href="/terms" className="hover:text-white">
-              Terms
+            <Link href="/ja/terms" className="hover:text-white">
+              利用規約
             </Link>
-            <Link href="/contact" className="hover:text-white">
-              Contact
+            <Link href="/ja/contact" className="hover:text-white">
+              お問い合わせ
             </Link>
             <a
               href="https://x.com/"

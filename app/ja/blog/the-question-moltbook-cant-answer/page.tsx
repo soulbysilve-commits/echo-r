@@ -1,22 +1,52 @@
-import LanguageSwitch from "../../components/LanguageSwitch";
 import type { Metadata } from "next";
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getPostBySlug } from "@/lib/blog";
+import LanguageSwitch from "../../../components/LanguageSwitch";
 
 const SITE_URL = "https://echo-r.veritasforge.net";
-const SLUG = "the-question-moltbook-cant-answer";
+const ARTICLE_PATH = path.join(
+  process.cwd(),
+  "content/ja/blog/article_moltbook_successor.md"
+);
+
+function getJapanesePost() {
+  const raw = fs.readFileSync(ARTICLE_PATH, "utf8");
+  const parsed = matter(raw);
+  return {
+    frontmatter: {
+      title: String(parsed.data.title || ""),
+      description: String(parsed.data.description || ""),
+      author: String(parsed.data.author || "SoulBySilver"),
+      date:
+        parsed.data.date instanceof Date
+          ? parsed.data.date.toISOString().slice(0, 10)
+          : String(parsed.data.date || ""),
+      canonical: String(
+        parsed.data.canonical ||
+          `${SITE_URL}/ja/blog/the-question-moltbook-cant-answer`
+      ),
+      tags: Array.isArray(parsed.data.tags)
+        ? parsed.data.tags.map(String)
+        : [],
+    },
+    content: parsed.content,
+  };
+}
 
 export function generateMetadata(): Metadata {
-  const post = getPostBySlug(SLUG);
-  const canonical =
-    post.frontmatter.canonical || `${SITE_URL}/blog/${post.frontmatter.slug}`;
-
+  const post = getJapanesePost();
   return {
     title: post.frontmatter.title,
     description: post.frontmatter.description,
     alternates: {
-      canonical,
+      canonical: post.frontmatter.canonical,
+      languages: {
+        en: `${SITE_URL}/blog/the-question-moltbook-cant-answer`,
+        ja: `${SITE_URL}/ja/blog/the-question-moltbook-cant-answer`,
+      },
     },
     robots: {
       index: true,
@@ -29,11 +59,10 @@ export function generateMetadata(): Metadata {
         "max-video-preview": -1,
       },
     },
-
     openGraph: {
       title: post.frontmatter.title,
       description: post.frontmatter.description,
-      url: canonical,
+      url: post.frontmatter.canonical,
       images: [
         {
           url: `${SITE_URL}/og-image.png`,
@@ -55,15 +84,19 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function BlogArticlePage() {
-  const post = getPostBySlug(SLUG);
+export default function JapaneseBlogArticlePage() {
+  const post = getJapanesePost();
 
   return (
     <main className="min-h-screen bg-black px-6 py-32 text-white">
-      <LanguageSwitch current="en" enHref="/blog/the-question-moltbook-cant-answer" jaHref="/ja/blog/the-question-moltbook-cant-answer" />
+      <LanguageSwitch
+        current="ja"
+        enHref="/blog/the-question-moltbook-cant-answer"
+        jaHref="/ja/blog/the-question-moltbook-cant-answer"
+      />
       <article className="mx-auto max-w-3xl">
-        <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-          BLOG
+        <p className="mb-4 text-sm font-bold tracking-[0.35em] text-blue-400">
+          ブログ
         </p>
 
         <h1 className="text-4xl font-black tracking-tight md:text-6xl">
@@ -78,8 +111,7 @@ export default function BlogArticlePage() {
           <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-400">
             {post.frontmatter.date}
           </span>
-
-          {post.frontmatter.tags?.map((tag) => (
+          {post.frontmatter.tags.map((tag) => (
             <span
               key={tag}
               className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-400"
@@ -94,19 +126,13 @@ export default function BlogArticlePage() {
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ children }) => (
-                <h1 className="mt-12 text-4xl font-black text-white">
-                  {children}
-                </h1>
+                <h1 className="mt-12 text-4xl font-black text-white">{children}</h1>
               ),
               h2: ({ children }) => (
-                <h2 className="mt-12 text-3xl font-bold text-white">
-                  {children}
-                </h2>
+                <h2 className="mt-12 text-3xl font-bold text-white">{children}</h2>
               ),
               h3: ({ children }) => (
-                <h3 className="mt-10 text-2xl font-bold text-white">
-                  {children}
-                </h3>
+                <h3 className="mt-10 text-2xl font-bold text-white">{children}</h3>
               ),
               p: ({ children }) => (
                 <p className="mt-6 leading-8 text-gray-300">{children}</p>
@@ -122,14 +148,10 @@ export default function BlogArticlePage() {
                 </a>
               ),
               ul: ({ children }) => (
-                <ul className="mt-6 list-disc space-y-3 pl-6 text-gray-300">
-                  {children}
-                </ul>
+                <ul className="mt-6 list-disc space-y-3 pl-6 text-gray-300">{children}</ul>
               ),
               ol: ({ children }) => (
-                <ol className="mt-6 list-decimal space-y-3 pl-6 text-gray-300">
-                  {children}
-                </ol>
+                <ol className="mt-6 list-decimal space-y-3 pl-6 text-gray-300">{children}</ol>
               ),
               li: ({ children }) => <li className="leading-8">{children}</li>,
               blockquote: ({ children }) => (

@@ -1,11 +1,24 @@
-import LanguageSwitch from "../components/LanguageSwitch";
+import type { Metadata } from "next";
+import LanguageSwitch from "../../components/LanguageSwitch";
+
+export const metadata: Metadata = {
+  title: "特定商取引法に基づく表示 | Veritas Forge",
+  alternates: {
+    canonical: "https://echo-r.veritasforge.net/ja/legal",
+    languages: {
+      en: "https://echo-r.veritasforge.net/legal",
+      ja: "https://echo-r.veritasforge.net/ja/legal",
+    },
+  },
+};
+
 export default function LegalNotice() {
   return (
     <main className="min-h-screen bg-black px-6 py-32 text-white">
-      <LanguageSwitch current="en" enHref="/legal" jaHref="/ja/legal" />
+      <LanguageSwitch current="ja" enHref="/legal" jaHref="/ja/legal" />
       <section className="mx-auto max-w-5xl">
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
-          LEGAL NOTICE
+          法的表示
         </p>
 
         <h1 className="text-4xl font-black tracking-tight md:text-6xl">

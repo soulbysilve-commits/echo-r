@@ -1,3 +1,4 @@
+import LanguageSwitch from "../components/LanguageSwitch";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
@@ -35,6 +36,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-black px-6 py-32 text-white">
+      <LanguageSwitch current="en" enHref="/blog" jaHref="/ja/blog" />
       <section className="mx-auto max-w-5xl">
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
           BLOG
