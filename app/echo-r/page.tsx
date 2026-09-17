@@ -25,7 +25,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="hidden gap-8 text-sm text-gray-400 md:flex">
+                    <div className="hidden gap-4 text-xs text-gray-400 lg:flex xl:gap-6 xl:text-sm">
                         <a href="#research" className="hover:text-white">Research</a>
                         <a href="#architecture" className="hover:text-white">Architecture</a>
               <a
@@ -34,6 +34,7 @@ export default function Home() {
               >
                 ECHO App
               </a>
+              <a href="/echo-agent" className="whitespace-nowrap transition hover:text-white">ECHO Agent</a>
                         <a href="/blog" className="hover:text-white whitespace-nowrap">
                           Blog
                         </a>
@@ -48,7 +49,9 @@ export default function Home() {
                         <a href="/echo-r" className="hover:text-white">FAQ</a>
                     </div>
 
-                    <a
+                    <a href="/echo-agent" className="rounded-full border border-white/20 px-3 py-2 text-xs font-bold hover:bg-white hover:text-black lg:hidden">ECHO Agent</a>
+
+          <a
                         href="#apply"
                         className="rounded-full border border-white/20 px-5 py-2 text-sm hover:bg-white hover:text-black"
                     >

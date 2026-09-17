@@ -63,6 +63,46 @@ export default function LegalNotice() {
             </div>
           </section>
 
+          <section className="rounded-2xl border border-blue-400/20 bg-blue-500/[0.04] p-6 md:p-8">
+            <h2 className="mb-2 text-2xl font-bold text-white">
+              ECHO Agent（月額サブスクリプション商品）に関する表示
+            </h2>
+            <p className="mb-6 text-sm text-gray-500">
+              以下は「ECHO Agent」（開発者向け限定提供のローカルAIエージェント製品）に固有の表示です。下記の他セクション（ECHO-R Founder Edition等）とは別の商品条件です。販売業者・運営責任者・所在地・電話番号・メールアドレスは、本ページ上部「基本情報」の表示を共通して適用します。
+            </p>
+
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              <table className="w-full border-collapse text-left text-sm md:text-base">
+                <tbody>
+                  {[
+                    ["販売価格", "月額3,000円"],
+                    ["消費税", "免税事業者"],
+                    ["適格請求書発行事業者登録", "未登録"],
+                    ["商品代金以外の必要料金", "クレジットカード決済手数料はStripeの標準手数料として当社が負担します。ECHO Agent利用に必要な外部LLM／API利用料、インターネット接続料金はお客様のご負担となります。"],
+                    ["申込の有効期限", "該当なし（決済完了と同時に自動配信されるため）"],
+                    ["サービス提供の開始時期", "Stripeでの決済確認後、直ちに自動配信されます。"],
+                    ["お支払い方法", "Stripe Checkoutによるクレジットカード決済"],
+                    ["お支払い時期", "初回：Checkout完了時。以降：毎月の請求日に自動決済（サブスクリプション課金）。"],
+                    ["解約について", "いつでも解約可能です。解約は現在の支払期間終了時に有効となり、解約手数料はかかりません。最低契約期間はありません。"],
+                    ["返金について", "提供済み（ライセンス発行済み）のデジタル商品は原則返金いたしません。ただし、二重課金、明確な請求誤り、当社の提供不履行、当社の責に帰すべき破損・利用不能な場合、または法令上必要な場合は返金いたします。"],
+                    ["動作環境", "Windows（対応環境は導入前に個別確認）、インターネット接続"],
+                    ["クーリング・オフについて", "本サービスはデジタルコンテンツの即時提供であるため、特定商取引法上のクーリング・オフ制度の適用対象外です。"],
+                  ].map(([label, value]) => (
+                    <tr key={label} className="border-b border-white/10 last:border-0">
+                      <th className="w-1/3 bg-white/[0.04] px-5 py-4 font-bold text-white align-top">
+                        {label}
+                      </th>
+                      <td className="px-5 py-4">{value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm text-gray-500">
+              詳細な条件は<a href="/ja/eula" className="underline decoration-gray-600 underline-offset-4 hover:text-white">ECHO Agent使用許諾契約書（EULA・草案）</a>をご確認ください。
+            </p>
+          </section>
+
           <section>
             <h2 className="mb-4 text-2xl font-bold text-white">
               取扱いサービス

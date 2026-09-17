@@ -638,6 +638,7 @@ export default function EchoAppPage() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-3">
+            <Link href="/echo-agent" className="hover:text-white">ECHO Agent</Link>
             <Link href="/echo-r" className="hover:text-white">
               ECHO
             </Link>

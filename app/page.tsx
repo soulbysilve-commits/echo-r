@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import LanguageSwitch from "./components/LanguageSwitch";
 import Image from "next/image";
 import ByokOnboarding from "./components/ByokOnboarding";
+
+export const metadata: Metadata = {
+  title: "ECHO-R & ECHO Agent | Persistent AI Personality by Veritas Forge",
+  description:
+    "Veritas Forge builds persistent AI: ECHO-R's identity architecture, ECHO Agent's local-first persistent AI agent with long-term memory and computer use, and ECHO App. Persistent identity beyond a single context window.",
+  alternates: {
+    canonical: "https://echo-r.veritasforge.net/",
+    languages: {
+      en: "https://echo-r.veritasforge.net/",
+      ja: "https://echo-r.veritasforge.net/ja",
+    },
+  },
+};
 
 export default function Home() {
   return (
@@ -26,7 +40,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden gap-8 text-sm text-gray-400 md:flex">
+          <div className="hidden gap-4 text-xs text-gray-400 lg:flex xl:gap-6 xl:text-sm">
             <a href="#research" className="hover:text-white">Research</a>
             <a href="#architecture" className="hover:text-white">Architecture</a>
               <a
@@ -35,6 +49,7 @@ export default function Home() {
               >
                 ECHO App
               </a>
+              <a href="/echo-agent" className="whitespace-nowrap transition hover:text-white">ECHO Agent</a>
             <a href="/blog" className="hover:text-white whitespace-nowrap">
               Blog
             </a>
@@ -48,6 +63,8 @@ export default function Home() {
             <a href="/echo-r" className="hover:text-white">Founder</a>
             <a href="/echo-r" className="hover:text-white">FAQ</a>
           </div>
+
+          <a href="/echo-agent" className="rounded-full border border-white/20 px-3 py-2 text-xs font-bold hover:bg-white hover:text-black lg:hidden">ECHO Agent</a>
 
           <a
             href="#apply"
@@ -151,6 +168,114 @@ export default function Home() {
             >
               Explore Architecture
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" className="mx-auto max-w-7xl border-t border-white/10 px-6 py-28">
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
+          VERITAS FORGE PRODUCTS
+        </p>
+
+        <h2 className="max-w-5xl text-5xl font-black tracking-[-0.06em] md:text-7xl">
+          One continuity core. Three products.
+        </h2>
+
+        <p className="mt-6 max-w-3xl text-lg text-gray-400">
+          Every Veritas Forge product shares the same continuity core:
+          persistent identity and long-term memory that survive beyond a
+          single context window. ECHO Agent turns that continuity into a
+          local-first, persistent AI agent capable of computer use and
+          governed tool execution — not a chatbot that resets with every
+          session.
+        </p>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="rounded-3xl border border-blue-400/40 bg-blue-500/10 p-8 shadow-[0_0_80px_rgba(59,130,246,0.15)] lg:col-span-2">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+              ECHO AGENT
+            </p>
+            <h3 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+              An AI agent that remembers, acts, and keeps going.
+            </h3>
+            <p className="mt-5 max-w-2xl leading-7 text-gray-300">
+              ECHO Agent combines persistent identity, long-term memory,
+              governed permissions, tool use, computer interaction, and
+              long-running task execution. Instead of starting over with
+              every task, it continues as the same ECHO across work, models,
+              and sessions.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                "Persistent Identity",
+                "Long-term Memory",
+                "Computer Use",
+                "Multi-step Agent",
+                "Model Independent",
+                "Local-first",
+                "Governed Permissions",
+              ].map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-bold text-gray-300"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <a
+                href="/echo-agent"
+                className="rounded-full bg-blue-500 px-7 py-3.5 text-sm font-bold text-black hover:bg-blue-400"
+              >
+                Explore ECHO Agent
+              </a>
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                Developer Limited Release
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+                ECHO-R
+              </p>
+              <h3 className="mt-3 text-xl font-bold">
+                Persistent AI identity architecture.
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-gray-400">
+                Research-grade continuity, memory, and governance beyond a
+                single model session.
+              </p>
+              <a
+                href="/echo-r"
+                className="mt-5 inline-flex text-sm font-bold text-blue-300 hover:text-white"
+              >
+                Explore ECHO-R →
+              </a>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+                ECHO APP
+              </p>
+              <h3 className="mt-3 text-xl font-bold">
+                Persistent AI for everyday personal use.
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-gray-400">
+                The same continuity core, built for daily life instead of
+                developer tooling.
+              </p>
+              <a
+                href="/echo-app"
+                className="mt-5 inline-flex text-sm font-bold text-blue-300 hover:text-white"
+              >
+                Explore ECHO App →
+              </a>
+            </div>
           </div>
         </div>
       </section>

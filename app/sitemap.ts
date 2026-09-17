@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/echo-r",
     "/echo-app",
+    "/echo-agent",
     "/about",
     "/contact",
     "/blog",
@@ -14,9 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/legal",
     "/terms",
     "/privacy",
+    "/eula",
     "/ja",
     "/ja/echo-r",
     "/ja/echo-app",
+    "/ja/echo-agent",
     "/ja/about",
     "/ja/contact",
     "/ja/blog",
@@ -24,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ja/legal",
     "/ja/terms",
     "/ja/privacy",
+    "/ja/eula",
   ];
 
   return paths.map((pathname) => ({

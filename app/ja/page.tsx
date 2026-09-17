@@ -3,8 +3,8 @@ import Image from "next/image";
 import LanguageSwitch from "../components/LanguageSwitch";
 
 export const metadata: Metadata = {
-  title: "ECHO-R | 継続するAI人格 by Veritas Forge",
-  description: "ECHO-Rは、Memory・Identity・Relationship・Governanceをモデルの外側で継続するAI人格アーキテクチャです。",
+  title: "ECHO-R & ECHO Agent | 継続するAI人格 by Veritas Forge",
+  description: "ECHO-Rは、Memory・Identity・Relationship・Governanceをモデルの外側で継続するAI人格アーキテクチャです。ローカルAIエージェントのECHO Agent、日常向けのECHO Appを含むプロダクト群を提供し、長期記憶と継続人格を軸にComputer Useや権限制御を伴う継続的な作業を実現します。",
   alternates: {
     canonical: "https://echo-r.veritasforge.net/ja",
     languages: {
@@ -38,7 +38,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden gap-8 text-sm text-gray-400 md:flex">
+          <div className="hidden gap-4 text-xs text-gray-400 lg:flex xl:gap-6 xl:text-sm">
             <a href="#research" className="hover:text-white">研究</a>
             <a href="#architecture" className="hover:text-white">アーキテクチャ</a>
               <a
@@ -47,6 +47,7 @@ export default function Home() {
               >
                 ECHO App
               </a>
+              <a href="/ja/echo-agent" className="whitespace-nowrap transition hover:text-white">ECHO Agent</a>
             <a href="/ja/blog" className="hover:text-white whitespace-nowrap">
               ブログ
             </a>
@@ -60,6 +61,8 @@ export default function Home() {
             <a href="/ja/echo-r" className="hover:text-white">Founder版</a>
             <a href="/ja/echo-r" className="hover:text-white">よくある質問</a>
           </div>
+
+          <a href="/ja/echo-agent" className="rounded-full border border-white/20 px-3 py-2 text-xs font-bold hover:bg-white hover:text-black lg:hidden">ECHO Agent</a>
 
           <a
             href="#apply"
@@ -163,6 +166,111 @@ export default function Home() {
             >
               アーキテクチャを見る
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" className="mx-auto max-w-7xl border-t border-white/10 px-6 py-28">
+        <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-blue-400">
+          VERITAS FORGE PRODUCTS / プロダクト
+        </p>
+
+        <h2 className="max-w-5xl text-5xl font-black tracking-[-0.06em] md:text-7xl">
+          ひとつの継続性コア。3つのプロダクト。
+        </h2>
+
+        <p className="mt-6 max-w-3xl text-lg text-gray-400">
+          Veritas Forgeの各プロダクトは、同じ継続性コアを共有しています。
+          Context Windowを超えて残る長期記憶と継続人格です。ECHO Agentは、
+          その継続性をローカルAIとして動作するAIエージェントに変え、
+          Computer Useと権限制御を伴うツール実行を行います。単発のセッションで
+          リセットされるチャットボットではありません。
+        </p>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="rounded-3xl border border-blue-400/40 bg-blue-500/10 p-8 shadow-[0_0_80px_rgba(59,130,246,0.15)] lg:col-span-2">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+              ECHO AGENT
+            </p>
+            <h3 className="mt-4 text-3xl font-black tracking-tight md:text-4xl">
+              記憶するだけではない。あなたのPCで、仕事を続けるAI。
+            </h3>
+            <p className="mt-5 max-w-2xl leading-7 text-gray-300">
+              ECHO Agentは、長期記憶・Identity Continuity・権限制御を持ちながら、
+              ファイル操作、ツール実行、Computer Use、長時間タスクを遂行する
+              ローカルファーストのAI Agentです。単発の指示ごとにリセットされる
+              Agentではなく、過去の判断・記憶・関係性を継続しながら、同じECHOと
+              して次の仕事を続けます。
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                "Persistent Identity",
+                "Long-term Memory",
+                "Computer Use",
+                "Multi-step Agent",
+                "Model Independent",
+                "Local-first",
+                "Governed Permissions",
+              ].map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-bold text-gray-300"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <a
+                href="/ja/echo-agent"
+                className="rounded-full bg-blue-500 px-7 py-3.5 text-sm font-bold text-black hover:bg-blue-400"
+              >
+                ECHO Agentを見る
+              </a>
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                Developer Limited Release
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+                ECHO-R
+              </p>
+              <h3 className="mt-3 text-xl font-bold">
+                継続するAI Identityアーキテクチャ。
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-gray-400">
+                単一のモデルセッションを越えて継続する、Memory・Governanceの研究アーキテクチャ。
+              </p>
+              <a
+                href="/ja/echo-r"
+                className="mt-5 inline-flex text-sm font-bold text-blue-300 hover:text-white"
+              >
+                ECHO-Rを見る →
+              </a>
+            </div>
+
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400">
+                ECHO APP
+              </p>
+              <h3 className="mt-3 text-xl font-bold">
+                日常のためのAI Identity継続。
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-gray-400">
+                同じ継続性コアを、開発者向けツールではなく日々の暮らしのために。
+              </p>
+              <a
+                href="/ja/echo-app"
+                className="mt-5 inline-flex text-sm font-bold text-blue-300 hover:text-white"
+              >
+                ECHO Appを見る →
+              </a>
+            </div>
           </div>
         </div>
       </section>
