@@ -36,6 +36,16 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local-only operator packaging output (scripts/package-echo-agent-release.mjs) --
+# the deployed app reads release artifacts from R2 at runtime, never from
+# these local files; they have no business being part of a deployment.
+/release-output
+
+# local-only marker: the revision veritas-release-orchestrator last confirmed
+# deployed to Production (OfficialSiteAdapter.getCurrentProduction()) --
+# orchestrator bookkeeping, never part of the deployed app itself.
+/.veritas-orchestrator-deployed-revision
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
