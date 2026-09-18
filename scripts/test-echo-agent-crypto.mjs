@@ -20,6 +20,7 @@ import {
   wrapDek,
   unwrapDek,
   constantTimeEqualHex,
+  getArtifactKek,
 } from "../lib/artifactCrypto.ts";
 import { issueLicense, canonicalJson } from "../lib/license.ts";
 import { selectWrappedDek } from "../lib/release.ts";
@@ -94,6 +95,59 @@ function expectThrow(name, fn) {
   check("5c. constant-time hex compare: equal => true", constantTimeEqualHex(a, "aabbcc"));
   check("5d. constant-time hex compare: different => false", !constantTimeEqualHex(a, "aabbcd"));
   check("5e. constant-time hex compare: length mismatch => false (no throw)", !constantTimeEqualHex(a, "aabb"));
+}
+
+// --- getArtifactKek(): Vercel Sensitive-placeholder hardening ---
+// (2026-09-18 incident: `vercel env pull` cannot return plaintext for a
+// Sensitive-typed var and writes the literal "[SENSITIVE]" placeholder
+// instead; a naive parser that fed that placeholder in as the KEK produced
+// a raw string of length 13 (quoted) that lenient base64-decodes to 6
+// bytes. getArtifactKek() already failed closed on the wrong byte length --
+// these tests additionally prove the placeholder is recognized explicitly.)
+
+{
+  const original = process.env.ECHO_AGENT_ARTIFACT_KEK_B64;
+
+  process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = generateDek().toString("base64");
+  check("19. getArtifactKek: real 32-byte base64 KEK accepted", getArtifactKek() !== null);
+
+  process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = "[SENSITIVE]";
+  check("20. getArtifactKek: unquoted Vercel Sensitive placeholder rejected", getArtifactKek() === null);
+
+  process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = '"[SENSITIVE]"';
+  check("21. getArtifactKek: quoted Vercel Sensitive placeholder rejected", getArtifactKek() === null);
+
+  const placeholderStripped = '"[SENSITIVE]"'.replace(/^["']|["']$/g, "");
+  const placeholderDecoded = Buffer.from(placeholderStripped, "base64");
+  check(
+    "22. getArtifactKek: observed 13-char/6-byte placeholder signature reproduced and never treated as a valid KEK",
+    '"[SENSITIVE]"'.length === 13 && placeholderDecoded.length === 6 && getArtifactKek() === null,
+  );
+
+  process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = "not-valid-base64-and-too-short";
+  check("23. getArtifactKek: invalid/short input rejected", getArtifactKek() === null);
+
+  process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = generateDek().subarray(0, 16).toString("base64");
+  check("24. getArtifactKek: valid base64 decoding to a length != 32 bytes rejected", getArtifactKek() === null);
+
+  {
+    const originalConsoleError = console.error;
+    let captured = [];
+    console.error = (...args) => {
+      captured.push(args.join(" "));
+    };
+    process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = "[SENSITIVE]";
+    getArtifactKek();
+    console.error = originalConsoleError;
+    const message = captured.join("\n");
+    check(
+      "25. getArtifactKek: placeholder rejection emits a fixed, non-secret diagnostic (no interpolated value)",
+      message === "ECHO_AGENT_ARTIFACT_KEK_B64 is the Vercel Sensitive-variable placeholder; plaintext KEK is not available through env pull.",
+    );
+  }
+
+  if (original === undefined) delete process.env.ECHO_AGENT_ARTIFACT_KEK_B64;
+  else process.env.ECHO_AGENT_ARTIFACT_KEK_B64 = original;
 }
 
 // --- Ed25519 license issuance tests ---

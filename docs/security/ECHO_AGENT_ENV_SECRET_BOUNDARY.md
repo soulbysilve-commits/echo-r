@@ -808,3 +808,95 @@ merely asserted — by a real Vercel Production runtime exercising its
 own actual injected value. The only thing genuinely shared between
 environments is the immutable `artifact.enc` object itself, by
 design.
+
+## 21. Vercel Sensitive placeholder incident (2026-09-18)
+
+A forensic audit was opened on 2026-09-18 on the premise that the live
+Production `ECHO_AGENT_ARTIFACT_KEK_B64` was "proven invalid," based on
+an observation from a prior ECHO Agent packaging session: the value the
+packaging process saw had a raw string length of **13 characters** and
+base64-decoded to **6 bytes**.
+
+**Root cause, confirmed empirically (no secret value read at any
+point):** a Vercel **"Sensitive"**-typed environment variable — which
+`ECHO_AGENT_ARTIFACT_KEK_B64` is — cannot be returned as plaintext by
+`vercel env pull` to a non-interactive caller (§1 above; re-confirmed
+live this session). For each such variable, `vercel env pull` writes
+the literal placeholder string:
+
+```
+ECHO_AGENT_ARTIFACT_KEK_B64="[SENSITIVE]"
+```
+
+into the pulled `.env` file, and the CLI explicitly warns
+`Secret values cannot be pulled from the ... Environment. Wrote
+"[SENSITIVE]" as placeholders`. That field is 13 raw characters
+including the surrounding quotes; `Buffer.from(value, "base64")` in
+Node is lenient and silently discards the non-base64-alphabet
+characters (`"`, `[`, `]`), leaving only the 9 letters of `SENSITIVE`,
+which decode to exactly 6 bytes. This reproduces the "13
+chars / 6 bytes" observation exactly, with no other explanation
+required.
+
+**This placeholder must never be used as a KEK source, under any
+circumstance.** It is not a corrupted real value, not a wrong-project
+value, and not evidence the real Production KEK is broken — it is
+Vercel's own, by-design protection of Sensitive-typed secrets from
+non-interactive plaintext extraction.
+
+Evidence this did **not** produce an invalid release artifact:
+
+- `getArtifactKek()` (`lib/artifactCrypto.ts`) already validated
+  `decoded.length === 32` and returned `null` on any other length
+  *before this incident* — a placeholder value reaching it would fail
+  closed immediately, not silently wrap a DEK with garbage key
+  material.
+- `scripts/package-echo-agent-release.mjs` checks `if (!kek)` and
+  `process.exit(1)` with an explicit error before any encryption
+  happens — it never proceeds past a `null` KEK.
+- `scripts/package-echo-agent-release.mjs` does not load any `.env`
+  file itself; it only reads `process.env` as already populated by the
+  invoking shell. It is not wired to `vercel env pull` output by any
+  script or documented runbook step in this repo.
+- The real, already-shipped release
+  (`release-output/echoagent-win-20260914T072837Z-57d883c6`) was
+  independently proven decryptable against the real Production KEK by
+  the real-runtime self-test in §16-17 above
+  (`PRODUCTION_DECRYPTION_PROOF=PASS`), dated 2026-09-14/15.
+- The Production `ECHO_AGENT_ARTIFACT_KEK_B64` env-var metadata's
+  `updatedAt` has not changed since that same 2026-09-14 cutover — no
+  write of any kind has touched it since, sensitive or otherwise.
+
+**Conclusion:**
+
+```
+PRODUCTION_KEK_INVALID=false (not proven; contradicted by the §16-17 proof and unchanged updatedAt)
+KEK_CHANGE_REQUIRED=false
+KEK_ROTATION_REQUIRED=false
+ROOT_CAUSE=VERCEL_SENSITIVE_PLACEHOLDER_MISINTERPRETATION
+INVALID_ARTIFACT_CREATED=false
+PRODUCTION_MUTATED=false
+```
+
+**Operational invariant (now also enforced in code, see below):**
+`vercel env pull` remains a safe and normal way to sync *non-Sensitive*
+project config locally. It must never be treated as a retrieval
+mechanism for a Sensitive-typed secret — for those, the placeholder it
+writes is not usable input for anything, and any script or operator
+step that might consume its output must source Sensitive values from
+an approved trusted path instead (`.env.local` populated through the
+owner's own interactive step-up, or a genuine Production/Sandbox
+runtime injection) — never from a `vercel env pull` file.
+
+**Code hardening (this pass):** `getArtifactKek()` now explicitly
+recognizes the literal placeholder `[SENSITIVE]`, in both unquoted and
+quoted (`"[SENSITIVE]"` / `'[SENSITIVE]'`) form, and fails closed with
+a fixed, non-secret diagnostic (`"ECHO_AGENT_ARTIFACT_KEK_B64 is the
+Vercel Sensitive-variable placeholder; plaintext KEK is not available
+through env pull."`) before ever reaching the base64/length check. The
+existing `decoded.length === 32` requirement is unchanged and still
+the final fail-closed guard for every other malformed input.
+Regression coverage: `scripts/test-echo-agent-crypto.mjs` tests 19-25.
+
+No secret value, hash, prefix, or suffix was read, derived, or printed
+at any point during this incident's investigation or remediation.

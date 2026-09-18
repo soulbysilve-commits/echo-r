@@ -47,15 +47,40 @@ function aesGcmDecrypt(ciphertext: Buffer, key: Buffer, iv: Buffer, authTag: Buf
   return Buffer.concat([decipher.update(ciphertext), decipher.final()]);
 }
 
+// `vercel env pull` cannot return plaintext for a Vercel "Sensitive"-typed
+// variable (ECHO_AGENT_ARTIFACT_KEK_B64 is one) and substitutes this exact
+// literal string instead. See docs/security/ECHO_AGENT_ENV_SECRET_BOUNDARY.md
+// "Vercel Sensitive placeholder incident" -- this must never be treated as a
+// usable KEK.
+const VERCEL_SENSITIVE_PLACEHOLDER = "[SENSITIVE]";
+
+function stripSurroundingQuotes(value: string): string {
+  if (value.length >= 2) {
+    const first = value[0];
+    const last = value[value.length - 1];
+    if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
+      return value.slice(1, -1);
+    }
+  }
+  return value;
+}
+
 /** Reads and validates ECHO_AGENT_ARTIFACT_KEK_B64. Returns null (not
  * throw) if unset/malformed so callers can fail closed with a clear
  * "not configured" response rather than a stack trace. */
 export function getArtifactKek(): Buffer | null {
   const raw = process.env.ECHO_AGENT_ARTIFACT_KEK_B64;
   if (typeof raw !== "string" || !raw.trim()) return null;
+  const trimmed = raw.trim();
+  if (stripSurroundingQuotes(trimmed) === VERCEL_SENSITIVE_PLACEHOLDER) {
+    console.error(
+      "ECHO_AGENT_ARTIFACT_KEK_B64 is the Vercel Sensitive-variable placeholder; plaintext KEK is not available through env pull.",
+    );
+    return null;
+  }
   let buf: Buffer;
   try {
-    buf = Buffer.from(raw.trim(), "base64");
+    buf = Buffer.from(trimmed, "base64");
   } catch {
     return null;
   }
