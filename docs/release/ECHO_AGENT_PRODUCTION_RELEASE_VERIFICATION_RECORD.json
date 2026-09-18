@@ -1,0 +1,13 @@
+{
+  "schema": "veritas-forge-verified-evidence/v1",
+  "product": "ECHO Agent",
+  "artifact_type": "release_promotion_record",
+  "source_revision": "d65b9e5cc09c74c784a5728d0b4af3b376a95df3",
+  "verified_at": "2026-09-18T05:41:00Z",
+  "result": "VERIFIED",
+  "verifier": "Production runtime self-test (real Vercel Production deployment dpl_BkQu7sokX9D6ftpgQWHLnP9ph4b1): manifest load, artifact load, encrypted-hash match, KEK unwrap, decrypt, plaintext-hash match, license-signer proof, fulfillment proof, one-time-claim first-use + replay-rejected all PASS",
+  "public_safe": true,
+  "claim_topic": "echo_agent_production_release",
+  "description": "release echoagent-win-20260916T154527Z-64d6d128 promoted to the Production distribution path",
+  "limitations": "See docs/release/ECHO_AGENT_PROMOTION_RECEIPT_64D6D128.md for the full record. Does not imply live sales or general availability; STRIPE_SALES_LIVE_ENABLED remained false throughout."
+}
