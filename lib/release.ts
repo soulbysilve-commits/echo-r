@@ -25,6 +25,18 @@ export interface WrappedDekEntry {
 export interface ReleaseManifest {
   schema: "veritasforge.echo-agent.release-manifest.v1";
   release_id: string;
+  // Additive, optional: absent on every manifest written before this
+  // field existed (all of them were, and still can be, the raw
+  // internal dist-folder ZIP -- "raw_dist_zip" is the implied default
+  // for an absent value, never treated as an error). "windows_installer"
+  // is the customer-distributed GUI installer .exe, packaged by
+  // scripts/package-echo-agent-release.mjs's --installer mode. Nothing
+  // in the download path (app/api/echo-agent-download,
+  // app/api/echo-agent-download-token) currently branches on this --
+  // it is descriptive metadata for operators/tooling, not an
+  // enforcement mechanism; content_type/original_filename below are
+  // what actually drive the HTTP response either way.
+  artifact_type?: "raw_dist_zip" | "windows_installer";
   artifact_sha256: string;
   encrypted_sha256: string;
   algorithm: "aes-256-gcm";
