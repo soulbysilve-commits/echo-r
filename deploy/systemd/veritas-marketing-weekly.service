@@ -1,0 +1,13 @@
+[Unit]
+Description=Veritas Forge marketing weekly report (one-shot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/echo-r-marketing
+ExecStart=%h/echo-r-marketing/scripts/run-marketing-weekly.sh
+TimeoutStartSec=300
+Environment=MARKETING_MODE=DRY_RUN
+Environment=ECHO_MARKETING_AUTOMATION_ENABLED=false
+EnvironmentFile=-%h/.config/veritas-forge-marketing/secrets.env

@@ -1,0 +1,27 @@
+[Unit]
+Description=Veritas Forge autonomous marketing operator (one-shot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Points at the isolated marketing worktree, not %h/echo-r main, while that
+# branch is still unreconciled with the in-progress checkout/Stripe work on
+# main (see docs/marketing/AUTONOMOUS_MARKETING_AUDIT.md). Update this path
+# once marketing/veritas-forge-operator is merged into main.
+WorkingDirectory=%h/echo-r-marketing
+ExecStart=%h/echo-r-marketing/scripts/run-marketing-operator.sh
+TimeoutStartSec=900
+# Hard safety floor, independent of .env.local: a systemd-triggered run is
+# ALWAYS DRY_RUN with automation disabled and the deterministic (no-LLM-call)
+# engine, until a human deliberately changes this unit file. Enabling LIVE
+# publication or the `claude` engine on a timer are separate, later decisions.
+Environment=MARKETING_MODE=DRY_RUN
+Environment=ECHO_MARKETING_AUTOMATION_ENABLED=false
+Environment=MARKETING_OPERATOR_ENGINE=node
+# Channel credentials live in a private 0600 file outside every git
+# worktree, never in this unit file or in .env.local. The `-` prefix means
+# systemd won't fail if the file is absent. The wrapper script also sources
+# it directly (belt-and-suspenders) in case this unit is ever copied
+# without the EnvironmentFile= line carrying over correctly.
+EnvironmentFile=-%h/.config/veritas-forge-marketing/secrets.env

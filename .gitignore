@@ -49,3 +49,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# marketing operator runtime state (db, logs, lockfiles, local analytics sink)
+# — never commit real run data
+/var/marketing/*.db
+/var/marketing/logs/
+/var/marketing/*.flock
+/var/marketing/health.json
+/var/marketing/site-events.jsonl
