@@ -11,8 +11,9 @@ export function generateStaticParams() {
   return getAllNews("en").map((post) => ({ slug: post.frontmatter.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const post = getNewsBySlug("en", params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getNewsBySlug("en", slug);
   if (!post) return {};
   const canonical = `${SITE_URL}/news/${post.frontmatter.slug}`;
   return {
@@ -37,8 +38,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function NewsArticlePage({ params }: { params: { slug: string } }) {
-  const post = getNewsBySlug("en", params.slug);
+export default async function NewsArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getNewsBySlug("en", slug);
   if (!post) notFound();
 
   const structuredData = {
